@@ -21,6 +21,9 @@
   ### Added
   - I added a lightbox in every picture in my website and website code and the lightbox is interactive.
 
+### Added
+- I added a dynamic content and search feature in the adopt.html website code a user can simply search for the animal or pet they want. 
+
     
     
     
