@@ -1,32 +1,63 @@
 #Changelog
 
-## - 2025-11-15
+2025-08-10 – Project Initialization
+
+Added:
+-Project folder structure created for HTML, CSS, and JS files.
+-index.html (Homepage) created with basic layout and navigation menu.
+-Initial README file created with project title, developer name, and course information.
+
+2025-09-11 – Basic Pages and Styling
+
+Added:
+-About Us.html and Volunteer.html pages with base content and images.
+-style.css file added to handle consistent styling across all pages.
+-Navigation menu styled for hover effects and responsive display.
+
+Changed:
+-README updated with website goals and objectives.
+
+2025-11-15 – Interactive Features
+
+Added:
+-Fade-in animation effect for headings and sections using JavaScript.
+-Initial meta tags (description and keywords) added to improve SEO.
+
+Fixed:
+-Navigation links were tested and corrected for proper page linking.
+
+2025-11-16 – Contact Page Development
+
+Added:
+-Contact.html page with contact form including Name, Email, Message.
+-Success message functionality after form submission.
+-Google Maps iframe embedded for location display.
+
+Fixed:
+-Form input fields validated to show error messages if left empty.
+- Fixed my README file to be more detailed as well as my CHANGELOG to be placed in a correct place an dbe more detailed as possible.
+
+2025-11-16 – Adoption Page Enhancements
+
+Added:
+-Dynamic search feature for Adopt.html allowing users to filter pets.
+-Lightbox added to all images for interactive viewing.
+-Additional meta tags added to all pages for SEO enhancement.
+
+Changed:
+-README updated with key features and functionality details.
+
+2025-11-16 – Final Updates and Refinements
+
+Added:
+-Detailed meta descriptions added to every webpage for SEO.
+-Separate scripts.js file created for all interactive and dynamic features.
+-Lightbox and dynamic search fully integrated across website.
+
+Fixed:
+-Navigation menu fully corrected; pages now accessible from all links.
+
+Changed:
+-README document finalized with all project details, sitemap, references, and overview.
 
 
-### Added
-- I finally managed to correctly add a changelog since it was missing for Part 1 and Part 2 of the assignement.
-
-### Fixed
-- I fixed my navigation menu, now all my pages on the website are correctly linked to each other, an individual can now scroll through pages without struggling or the pages not linking to each other correctly.
- 
-### Changed
-- I changed my README document and added all the information that I think is required.
-
-### Added
-- I added a interactive map in my website specifically in the Contact.html website code.
-
-### Added
--  I also added a js.file where it stores all the javascript code that makes my website look modern and fun and interactive to use.
- 
- ### Added
- - I added a lightbox in every picture in my website and website code and the lightbox is interactive.
-
-### Added
-- I added a dynamic content and search feature in the adopt.html website code a user can simply search for the animal or pet they want.
-
-### Added
-- I added a detailed meta description in each and every website code.
-
-    
-    
-    
