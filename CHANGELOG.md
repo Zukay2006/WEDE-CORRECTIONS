@@ -50,7 +50,7 @@ Fixed:
 
 -Form input fields validated to show error messages if left empty.
 
-- Fixed my README file to be more detailed as well as my CHANGELOG to be placed in a correct place an dbe more detailed as possible.
+- Fixed my README file to be more detailed as well as my CHANGELOG to be placed in a correct place and to be more detailed as possible.
 
 2025-11-16 – Adoption Page Enhancements
 
