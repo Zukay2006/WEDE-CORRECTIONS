@@ -90,6 +90,7 @@
       border-radius: 10px;
       box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer; /* indicates clickable for lightbox */
     }
 
     img.responsive-img:hover {
@@ -130,6 +131,25 @@
       padding-left: 1rem;
       margin: 1rem 0;
       color: #555;
+    }
+
+    /* ---------------- Lightbox ---------------- */
+    .lightbox {
+      position: fixed;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
     }
 
     @media (min-width: 600px) {
@@ -175,7 +195,7 @@
   <picture>
     <source media="(max-width: 600px)" srcset="Images/Animals being cared for-small.jpeg">
     <source media="(max-width: 992px)" srcset="Images/Animals being cared for-medium.jpeg">
-    <img src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\Animals being cared for.jpeg">
+    <img class="responsive-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\Animals being cared for.jpeg">
   </picture>
 </div>
 
@@ -188,8 +208,8 @@
 </div>
 <p class="center">Join the conversation on all social media platforms about changing the lives of our pets and best friends.</p>
 
-<p align="center"><img src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\facebook.jpeg"></p> 
-<p align="center"><img src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\tik tok.png"></p>
+<p align="center"><img class="responsive-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\facebook.jpeg"></p> 
+<p align="center"><img class="responsive-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\tik tok.png"></p>
 
 <h2>Quick Statistic</h2>
 <p>87% of animals rescued by Helping Hands find their “furever” homes within the first 6 months of rescue!</p>
@@ -207,6 +227,11 @@
   <p><a href="https://unsplash.com/s/photos/animal" target="_blank">Unsplash</a></p>
 </section>
 
+<!-- Lightbox container -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Enlarged Image">
+</div>
+
 <script>
   // Fade-in animation on scroll
   document.addEventListener("DOMContentLoaded", function() {
@@ -220,8 +245,24 @@
     }, { threshold: 0.1 });
 
     elements.forEach(el => observer.observe(el));
+
+    // Simple Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('img.responsive-img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
   });
 </script>
 
 </body>
 </html>
+
