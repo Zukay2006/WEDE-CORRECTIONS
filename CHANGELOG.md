@@ -15,14 +15,17 @@
 ### Added
 - I added a interactive map in my website specifically in the Contact.html website code.
 
-  ### Added
-  -  I also added a js.file where it stores all the javascript code that makes my website look modern and fun and interactive to use.
+### Added
+-  I also added a js.file where it stores all the javascript code that makes my website look modern and fun and interactive to use.
  
-  ### Added
-  - I added a lightbox in every picture in my website and website code and the lightbox is interactive.
+ ### Added
+ - I added a lightbox in every picture in my website and website code and the lightbox is interactive.
 
 ### Added
-- I added a dynamic content and search feature in the adopt.html website code a user can simply search for the animal or pet they want. 
+- I added a dynamic content and search feature in the adopt.html website code a user can simply search for the animal or pet they want.
+
+### Added
+- I added a detailed meta description in each and every website code.
 
     
     
