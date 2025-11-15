@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../CSS/style.css">
   <style>
-    /* ---------------- Base Styles ---------------- */
+<!-------------------------- CSS STYLE ---------------------------->
     body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 1rem;
@@ -14,6 +13,7 @@
       margin: 0 auto;
       max-width: 1200px;
       padding: 0 1rem;
+      color: #333;
     }
 
     header {
@@ -94,7 +94,7 @@
       box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 1rem;
-      cursor: pointer;  /* Makes images clickable for lightbox */
+      cursor: pointer;  /* Clickable for lightbox */
     }
 
     img:hover {
@@ -137,7 +137,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ---------------- Lightbox Styles ---------------- */
+    /* Lightbox Styles */
     .lightbox {
       position: fixed;
       top: 0;
@@ -183,6 +183,12 @@
 </header>
 
 <h1>Meet Our Animals</h1>
+
+<!-- Dynamic Search Feature -->
+<section class="center">
+  <h2>Search for an Animal</h2>
+  <input type="text" id="animalSearch" placeholder="Type an animal's name..." style="padding:0.5rem; width:80%; max-width:400px; border-radius:5px; border:1px solid #ccc; margin-bottom:2rem;">
+</section>
 
 <section class="animal-grid">
 
@@ -257,7 +263,7 @@
   <p><a href="https://unsplash.com/s/photos/animal" target="_blank">Unsplash</a></p>
 </section>
 
-<!-- ------------ Lightbox HTML ---------------- -->
+<!-- Lightbox HTML -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
   <img id="lightbox-img" src="">
@@ -288,6 +294,22 @@
 
   document.querySelector(".lightbox-close").addEventListener("click", () => {
     document.getElementById("lightbox").style.display = "none";
+  });
+
+  // Dynamic search/filter for animals
+  const searchInput = document.getElementById("animalSearch");
+  const animalArticles = document.querySelectorAll(".animal-grid article");
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    animalArticles.forEach(article => {
+      const title = article.querySelector("h2").textContent.toLowerCase();
+      if(title.includes(query)){
+        article.style.display = "";
+      } else {
+        article.style.display = "none";
+      }
+    });
   });
 </script>
 
