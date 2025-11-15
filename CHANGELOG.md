@@ -9,11 +9,14 @@
 ### Fixed
 - I fixed my navigation menu, now all my pages on the website are correctly linked to each other, an individual can now scroll through pages without struggling or the pages not linking to each other correctly.
  
- ### Changed
+### Changed
 - I changed my README document and added all the information that I think is required.
 
+### Added
+- I added a interactive map in my website specifically in the Contact.html website code.
+
   ### Added
-  - I added a interactive map in my website specifically in the Contact.html website code.
+  -  I also added a js.file where it stores all the javascript code that makes my website look modern and fun and interactive to use.
 
     
     
