@@ -17,6 +17,9 @@
 
   ### Added
   -  I also added a js.file where it stores all the javascript code that makes my website look modern and fun and interactive to use.
+ 
+  ### Added
+  - I added a lightbox in every picture in my website and website code and the lightbox is interactive.
 
     
     
