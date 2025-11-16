@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Join Helping Hands Rescue Animal South Africa as a volunteer. Help care for abandoned and rescued animals through feeding, walking, grooming, and supporting our events. Make a difference in the lives of animals today.">
-  <meta name="keywords" content="volunteer with animals, Helping Hands Rescue Animal, animal rescue South Africa, care for rescued pets, volunteer opportunities, animal welfare volunteering, help abandoned animals">
+<meta name="description" content="Join Helping Hands Rescue Animal South Africa as a volunteer. Help care for abandoned and rescued animals through feeding, walking, grooming, and supporting our events. Make a difference in the lives of animals today.">
+<meta name="keywords" content="volunteer with animals, Helping Hands Rescue Animal, animal rescue South Africa, care for rescued pets, volunteer opportunities, animal welfare volunteering, help abandoned animals">
 
-  
   <style>
 <!--------------------------
               CSS STYLE 
@@ -146,6 +145,51 @@
       max-height: 90%;
       border-radius: 10px;
     }
+
+    /* ---------------- Volunteer Form Styles ---------------- */
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    form input[type="submit"] {
+      margin-top: 1.5rem;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #e55a00;
+    }
+
   </style>
 </head>
 
@@ -163,10 +207,6 @@
   </nav>
 </header>
 
-<!--------------------------------------
-           Volunteer Section 
------------------------------------------>
-
 <h1>Become a Volunteer in Our Shelter</h1>
 
 <p>Volunteers are the heart of our rescue work. By giving your time, you help us feed, care for, and comfort abandoned animals that seek refuge with us. From walking dogs and cleaning kennels to helping with events, every effort you make makes a big difference.</p>
@@ -181,16 +221,55 @@
 </ul>
 
 <h2>Call to Action</h2>
-<img class="lightbox-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\Volunteers caring for animals.jpeg" alt= "Volunteers caring for animals">
+
+<img class="lightbox-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\Volunteers caring for animals.jpeg" alt="Volunteers caring for animals">
+
 <p>If you are interested in volunteering or joining our family, please fill in the volunteer form. <span class="highlight">Together we can give every animal a second chance.</span></p>
+
+<!-- ========================= Volunteer Form ========================== -->
+<section>
+  <h2>Volunteer Form</h2>
+  <form id="volunteerForm" action="#" method="post" novalidate>
+    <label for="volName">Full Name:</label>
+    <input type="text" id="volName" name="volName" required>
+    <div id="volName-error" class="error-message" style="color:red; font-size:0.9rem;"></div>
+
+    <label for="volEmail">Email:</label>
+    <input type="email" id="volEmail" name="volEmail" required>
+    <div id="volEmail-error" class="error-message" style="color:red; font-size:0.9rem;"></div>
+
+    <label for="volPhone">Phone Number:</label>
+    <input type="text" id="volPhone" name="volPhone" required>
+    <div id="volPhone-error" class="error-message" style="color:red; font-size:0.9rem;"></div>
+
+    <label for="volType">Type of Volunteering:</label>
+    <select id="volType" name="volType" required>
+      <option value="">--Select--</option>
+      <option value="animal care">Animal Care</option>
+      <option value="events">Events</option>
+      <option value="sponsorship">Sponsorship</option>
+      <option value="other">Other</option>
+    </select>
+    <div id="volType-error" class="error-message" style="color:red; font-size:0.9rem;"></div>
+
+    <label for="volMessage">Message / Availability:</label>
+    <textarea id="volMessage" name="volMessage" rows="5" required></textarea>
+    <div id="volMessage-error" class="error-message" style="color:red; font-size:0.9rem;"></div>
+
+    <input type="submit" value="Submit Volunteer Form">
+  </form>
+
+  <div id="volSuccess-message" style="display:none; text-align:center; color:green; margin-top:10px;">
+    Thank you for your interest! We will contact you shortly.
+  </div>
+</section>
 
 <hr>
 
-<!-----------------------------------
-      Donation Section 
------------------------------------->
 <h1>Donations</h1> 
+
 <img class="lightbox-img" src="C:\Users\zukha\Downloads\WEDE POE\IMAGES FOLDER\Donation items for animals.jpg" alt="Donation items for animals">
+
 <p class="highlight">Support our rescue</p>
 <p>Your donations help us provide food, shelter, and medical care for abandoned and rescued animals. Every contribution counts.</p>
 
@@ -244,6 +323,128 @@
     lightbox.addEventListener('click', () => {
       lightbox.style.display = 'none';
       lightboxImg.src = '';
+    });
+
+    // Volunteer form validation and feedback
+    const volunteerForm = document.getElementById('volunteerForm');
+    const volSuccessMessage = document.getElementById('volSuccess-message');
+
+    volunteerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      // Full Name
+      const volName = document.getElementById('volName');
+      const volNameError = document.getElementById('volName-error');
+      if(volName.value.trim() === '') {
+        volNameError.textContent = 'Please enter your full name.';
+        valid = false;
+      } else {
+        volNameError.textContent = '';
+      }
+
+      // Email
+      const volEmail = document.getElementById('volEmail');
+      const volEmailError = document.getElementById('volEmail-error');
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if(volEmail.value.trim() === '') {
+        volEmailError.textContent = 'Please enter your email.';
+        valid = false;
+      } else if(!emailPattern.test(volEmail.value.trim())) {
+        volEmailError.textContent = 'Please enter a valid email.';
+        valid = false;
+      } else {
+        volEmailError.textContent = '';
+      }
+
+      // Phone
+      const volPhone = document.getElementById('volPhone');
+      const volPhoneError = document.getElementById('volPhone-error');
+      if(volPhone.value.trim() === '') {
+        volPhoneError.textContent = 'Please enter your phone number.';
+        valid = false;
+      } else {
+        volPhoneError.textContent = '';
+      }
+
+      // Volunteer Type
+      const volType = document.getElementById('volType');
+      const volTypeError = document.getElementById('volType-error');
+      if(volType.value === '') {
+        volTypeError.textContent = 'Please select a volunteering type.';
+        valid = false;
+      } else {
+        volTypeError.textContent = '';
+      }
+
+      // Message
+      const volMessage = document.getElementById('volMessage');
+      const volMessageError = document.getElementById('volMessage-error');
+      if(volMessage.value.trim() === '') {
+        volMessageError.textContent = 'Please enter a message or availability.';
+        valid = false;
+      } else {
+        volMessageError.textContent = '';
+      }
+
+      // Show success message if valid
+      if(valid) {
+        volSuccessMessage.style.display = 'block';
+        volunteerForm.reset();
+      } else {
+        volSuccessMessage.style.display = 'none';
+      }
+    });
+
+  });
+</script>
+
+<!-- Back-to-Top Button -->
+<button id="backToTopBtn" title="Go to top">&#8679;</button>
+
+<style>
+  /* Back-to-Top Button Styles */
+  #backToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    font-size: 1.5rem;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: #e55a00;
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+  // Back-to-Top Button Functionality
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  // Show button when user scrolls down 300px
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  // Scroll to top when button clicked
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
   });
 </script>
