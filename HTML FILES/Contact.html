@@ -83,7 +83,7 @@
       margin-bottom: 2rem;
     }
 
-    input[type="text"], input[type="email"], textarea {
+    input[type="text"], input[type="email"], textarea, select {
       width: 100%;
       max-width: 600px;
       padding: 0.5rem;
@@ -96,7 +96,8 @@
 
     input[type="text"]:focus,
     input[type="email"]:focus,
-    textarea:focus {
+    textarea:focus,
+    select:focus {
       border-color: #ff6600;
       box-shadow: 0 0 5px rgba(255,102,0,0.5);
       outline: none;
@@ -199,6 +200,16 @@
     <input type="email" id="email" name="email" required>
     <div id="email-error" class="error-message"></div>
 
+    <label for="messageType">Message Type:</label><br>
+    <select id="messageType" name="messageType" required>
+      <option value="">--Select Message Type--</option>
+      <option value="General Inquiry">General Inquiry</option>
+      <option value="Volunteer">Volunteer Opportunity</option>
+      <option value="Adoption">Adoption Inquiry</option>
+      <option value="Donation">Donation Query</option>
+    </select>
+    <div id="type-error" class="error-message"></div>
+
     <label for="message">Message:</label><br>
     <textarea id="message" name="message" rows="5" required></textarea>
     <div id="message-error" class="error-message"></div>
@@ -230,7 +241,6 @@
 </section>
 
 <script>
-  // Fade-in animation on scroll
   document.addEventListener("DOMContentLoaded", function() {
     const elements = document.querySelectorAll("section, h1, h2, p, form, ul");
     const observer = new IntersectionObserver(entries => {
@@ -240,16 +250,14 @@
         }
       });
     }, { threshold: 0.1 });
-
     elements.forEach(el => observer.observe(el));
 
-    // Enhanced validation and feedback
+    // Form validation
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('success-message');
 
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       let valid = true;
 
       // Name validation
@@ -258,9 +266,7 @@
       if(nameInput.value.trim() === '') {
         nameError.textContent = 'Please enter your name.';
         valid = false;
-      } else {
-        nameError.textContent = '';
-      }
+      } else { nameError.textContent = ''; }
 
       // Email validation
       const emailInput = document.getElementById('email');
@@ -272,9 +278,15 @@
       } else if(!emailPattern.test(emailInput.value.trim())) {
         emailError.textContent = 'Please enter a valid email.';
         valid = false;
-      } else {
-        emailError.textContent = '';
-      }
+      } else { emailError.textContent = ''; }
+
+      // Message type validation
+      const typeInput = document.getElementById('messageType');
+      const typeError = document.getElementById('type-error');
+      if(typeInput.value === '') {
+        typeError.textContent = 'Please select a message type.';
+        valid = false;
+      } else { typeError.textContent = ''; }
 
       // Message validation
       const messageInput = document.getElementById('message');
@@ -282,9 +294,7 @@
       if(messageInput.value.trim() === '') {
         messageError.textContent = 'Please enter a message.';
         valid = false;
-      } else {
-        messageError.textContent = '';
-      }
+      } else { messageError.textContent = ''; }
 
       // Show success message if valid
       if(valid) {
@@ -312,6 +322,49 @@
   </div>
   <p class="center">Use the map above to locate our animal rescue centre in Cape Town.</p>
 </section>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">&#8679;</button>
+
+<style>
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    font-size: 1.5rem;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: #e55a00;
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
 </body>
 </html>
