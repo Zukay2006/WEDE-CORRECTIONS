@@ -151,6 +151,18 @@ Contact Us (contact.html)
 -Social media links for further engagement
 -Google Map embedding the physical location of the rescue center
 
+SEO, SITE STRUCTURE AND SECURITY CONSIDERATIONS
+
+-Robots.txt: A robots.txt file can be created to instruct search engine crawlers which pages to index and which to exclude, helping manage site visibility.
+
+-Sitemap: A sitemap helps search engines understand the structure of the website, making it easier to crawl all pages efficiently.
+
+-Website Loading Speed: Optimizing images, CSS, and JavaScript can improve load times, providing a better user experience and boosting SEO performance.
+
+-Security Measures: Implementing measures such as HTTPS, secure form handling, and safe storage of user data protects the website from potential attacks.
+
+-Off-Page SEO: Building high-quality backlinks, promoting the website on social media platforms, and optimizing for local search can enhance online visibility and reach.
+
 References / Credits
 -External sources for images and media (e.g., Pexels, Unsplash)
 
