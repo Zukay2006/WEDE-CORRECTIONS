@@ -21,6 +21,8 @@
 
 ###Added
 
+-Added title tags at the top of every html code.
+
 -Hover effect with color change and rounded button style in every website page.
 
 -Applied fade-in scroll animations for headings, paragraphs, lists, and images using IntersectionObserver in every website page.
